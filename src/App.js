@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useLayoutEffect } from "react";
+import mapboxgl from "mapbox-gl/dist/mapbox-gl.js"
 
-function App() {
+export default function App() {
+  const [random, setRandom] = useState(Math.random());
+
+  mapboxgl.accessToken = "pk.eyJ1IjoiYW5uYWFraG1ldCIsImEiOiJjbDJoZjdybTAwZDllM2lwaGpwMjZreHhsIn0.VpRx5KdVw-9fAvWYptlseg";
+
+  useLayoutEffect(() => {
+    const map = new mapboxgl.Map({
+      container: "map",
+      style: "mapbox://styles/mapbox/dark-v10",
+      center: [37.61192, 55.76199],
+      zoom: 10
+    });
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <button id="rerender" onClick={() => setRandom(Math.random())}>
+        Ререндер!
+      </button>
+      <div id="map"></div>
+    </>
   );
 }
 
-export default App;
