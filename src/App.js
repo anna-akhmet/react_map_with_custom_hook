@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import useMapbox from "./useMapbox.js";
+import {Button} from "./Button.js";
 
 export default function App() {
   const [random, setRandom] = useState(Math.random());
@@ -8,9 +9,7 @@ export default function App() {
 
   return (
     <>
-      <button id="rerender" onClick={() => setRandom(Math.random())}>
-        Ререндер!
-      </button>
+      <Button onClick={() => setRandom(Math.random())}>Ререндер!</Button>
       <div id="map"></div>
     </>
   );
