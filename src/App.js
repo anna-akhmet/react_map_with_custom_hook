@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import useMapbox from "./useMapbox.js";
 import {Button} from "./Button.js";
 
